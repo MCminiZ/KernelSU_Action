@@ -245,6 +245,9 @@ jobs:
         key: build-kernel-${{ env.DEVICE }}${{ env.LOCALVERSION }}${{ env.UPLOADNAME }}
         max-size: 2G
 
+    - name: Set full permissions recursively
+      run: chmod -R 777 $GITHUB_WORKSPACE
+       
     - name: Build kernel
       run: |
         cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
